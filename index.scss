@@ -2,7 +2,11 @@ $primary-color: #ffb6b6;
 $secondary-color:#d9d9d9;
 $primary-background:#a5a5a5;
 
-
+@mixin background-stuff() {
+    background-color: $primary-color;
+    padding: 16px;
+    text-align: center;
+}
 
 body {
     margin: 0;
@@ -16,12 +20,12 @@ body {
 }
 
 header {
-    background-color: $primary-color;
-    padding: 16px;
-    text-align: center;
+    @include background-stuff();
 
     .logo-name {
+        @media screen and (max-width: 600px) {
         margin-bottom: 48px;
+        }
 
         img {
             width: 100px;
@@ -53,11 +57,28 @@ header {
     }
 }
 
-footer {
-    background-color: $primary-color;
-    padding: 16px;
-    text-align: center;
+@media screen and (min-width: 600px) {
+    header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
 
+        .logo-name {
+
+            .name {
+                margin-bottom: 0;
+            }
+        }
+
+        #nav-items {
+            width: 50%;
+        }
+    }
+}
+
+footer {
+    @include background-stuff();
+    
     .social-media {
         display: flex;
         justify-content: space-around;
@@ -73,6 +94,16 @@ footer {
         .info {
             color: rgba(22, 21, 21, 0.664);
             
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    footer {
+        .social-media {
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
