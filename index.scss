@@ -3,6 +3,12 @@
 @import "./Styles/Components/header";
 @import "./Styles/Components/footer";
 
+@mixin background-stuff() {
+    background-color: $primary-color;
+    padding: 16px;
+    text-align: center;
+}
+
 body {
     margin: 0;
     background-color: $primary-background;
